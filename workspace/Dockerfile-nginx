@@ -1,0 +1,11 @@
+FROM nginx:alpine
+
+LABEL maintainer="Roberto Arruda <roberto0arruda@hotmail.com>"
+
+RUN apk update \
+    && apk upgrade \
+    && apk add --no-cache openssl \
+    && apk add --no-cache bash \
+    && adduser -D -H -u 1000 -s /bin/bash www-data
+
+EXPOSE 80 443
